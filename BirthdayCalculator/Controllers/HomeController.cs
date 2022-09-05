@@ -28,4 +28,15 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    [HttpGet]
+    public IActionResult CalculatorForm()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+    public IActionResult CalculatorForm(Birthday birthday)
+    {
+        return View();
+    }
 }
