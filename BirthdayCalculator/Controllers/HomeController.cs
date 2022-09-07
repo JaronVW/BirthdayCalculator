@@ -28,15 +28,24 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
     [HttpGet]
     public IActionResult CalculatorForm()
     {
         return View();
     }
-    
+
     [HttpPost]
-    public IActionResult CalculatorForm(Birthday birthday)
+    public IActionResult CalculatorForm(BirthDate birthDate)
     {
-        return View();
+        Repository.addBirthDate(birthDate);
+        var today = DateTime.Today;
+        Console.WriteLine(birthDate.Name);
+        
+        if (birthDate.Day == today.Day && birthDate.Month == today.Month)
+        {
+            return View("HappyBirthday", birthDate);
+        }
+        return View("DaysUntillBirthday", birthDate);
     }
-}
+}   

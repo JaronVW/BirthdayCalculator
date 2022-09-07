@@ -1,5 +1,5 @@
 ﻿@using System.Globalization
-@model BirthdayCalculator.Models.Birthday
+@model BirthdayCalculator.Models.BirthDate
 
 @{
     ViewData["Title"] = "Voer Geboortedatum In";
@@ -10,10 +10,10 @@
 <div >
     <h1>Voer hier je geboortedatum in!</h1>
     <form asp-action="CalculatorForm" method="post">
-        <label asp-for="Name">Dag</label><input asp-for="Name">
+        <label asp-for="Name">Naam</label><input asp-for="Name">
         <label asp-for="Day">Dag</label><input asp-for="Day">
         <label asp-for="Month">Maand</label><input asp-for="Month">
         <label asp-for="Year">Jaar</label><input asp-for="Year">
-        <input type="submit" value="Bereken">
+        <button type="submit">Bereken</button>
     </form>
 </div>
